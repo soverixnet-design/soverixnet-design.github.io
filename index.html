@@ -2,34 +2,29 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EarnStationBD - লগইন ও কাজ</title>
+    <title>EarnStationBD - প্রফেশনাল প্ল্যাটফর্ম</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #f4f7f6; font-family: sans-serif; }
-        .hidden { display: none !important; }
-        .auth-container { max-width: 400px; margin: 50px auto; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .task-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; text-align: center; }
-        .task-card i { font-size: 30px; margin-bottom: 10px; }
-        .sticky-btn { position: fixed; bottom: 20px; right: 20px; }
+        body { background: #f0f2f5; font-family: 'Segoe UI', sans-serif; }
+        .auth-card { max-width: 450px; margin: 50px auto; padding: 30px; background: white; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .task-card { background: white; border-radius: 15px; padding: 20px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s; }
+        .task-card:hover { transform: translateY(-5px); }
+        .price-badge { font-size: 1.2rem; font-weight: bold; color: #0d6efd; }
+        .sticky-support { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+        .notice-box { background: #fff; border-left: 5px solid #d9534f; padding: 15px; border-radius: 5px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
 
-<div id="authSection" class="container auth-container">
+<div id="authSection" class="container auth-card">
     <h3 class="text-center mb-4">EarnStationBD</h3>
-    <ul class="nav nav-tabs mb-3">
-        <li class="nav-item"><a class="nav-link active" id="loginBtn" onclick="showTab('login')">লগইন</a></li>
-        <li class="nav-item"><a class="nav-link" id="regBtn" onclick="showTab('reg')">রেজিস্ট্রেশন</a></li>
-    </ul>
-    
-    <form id="loginForm">
+    <div id="loginArea">
         <input type="text" class="form-control mb-3" id="loginPhone" placeholder="ফোন নম্বর" required>
-        <button type="submit" class="btn btn-primary w-100">লগইন করুন</button>
-    </form>
-
-    <form id="regForm" class="hidden">
+        <button class="btn btn-primary w-100" onclick="login()">লগইন করুন</button>
+        <button class="btn btn-link w-100 mt-2" onclick="toggleForm()">নতুন ইউজার? একাউন্ট খুলুন</button>
+    </div>
+    <form id="regArea" class="hidden">
         <input type="text" class="form-control mb-3" name="Name" placeholder="আপনার নাম" required>
         <input type="text" class="form-control mb-3" name="Phone" placeholder="আপনার ফোন নম্বর" required>
         <input type="text" class="form-control mb-3" name="Referrer" placeholder="রেফারার আইডি">
@@ -37,76 +32,45 @@
     </form>
 </div>
 
-<div id="mainContent" class="hidden container py-4">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h4>কাজসমূহ</h4>
-        <button class="btn btn-danger" onclick="logout()">লগ-আউট</button>
+<div id="mainContent" class="hidden container py-5">
+    <div class="d-flex justify-content-between mb-4">
+        <h4>কাজের ড্যাশবোর্ড</h4>
+        <button class="btn btn-danger btn-sm" onclick="logout()">লগ-আউট</button>
     </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="task-card border-top border-primary border-4">
-                <i class="fab fa-facebook text-primary"></i>
-                <h5>ফেসবুক লাইক</h5>
-                <p><strong>১৫ টাকা।</strong> পেজে লাইক দিয়ে স্ক্রিনশট নিন।</p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="task-card border-top border-danger border-4">
-                <i class="fab fa-youtube text-danger"></i>
-                <h5>ইউটিউব সাব</h5>
-                <p><strong>২৫ টাকা।</strong> চ্যানেল সাবস্ক্রাইব করে স্ক্রিনশট দিন।</p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="task-card border-top border-dark border-4">
-                <i class="fab fa-tiktok"></i>
-                <h5>টিকটক ফলো</h5>
-                <p><strong>২০ টাকা।</strong> আইডি ফলো করে স্ক্রিনশট দিন।</p>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="task-card border-top border-warning border-4">
-                <i class="fab fa-instagram text-warning"></i>
-                <h5>ইনস্টাগ্রাম ফলো</h5>
-                <p><strong>২০ টাকা।</strong> ফলো করে স্ক্রিনশট নিন।</p>
-            </div>
-        </div>
+    <div class="notice-box">
+        <h5><i class="fas fa-bullhorn text-danger"></i> জরুরি নিয়মাবলি:</h5>
+        <ul>
+            <li>প্রতিদিন সর্বোচ্চ <b>১০টি</b> টাস্ক পূরণ করা যাবে।</li>
+            <li>সর্বনিম্ন <b>৫,০০০ টাকা</b> আয় হলে উইথড্র করা যাবে (বিকাশ/নগদ/ব্যাংক)।</li>
+            <li>কাজ শেষে প্রুফ হিসেবে স্ক্রিনশট আমাদের <b>হোয়াটসঅ্যাপে</b> পাঠান।</li>
+            <li>পেমেন্ট পাওয়ার জন্য অবশ্যই আমাদের <b>হোয়াটসঅ্যাপ চ্যানেলে</b> জয়েন থাকতে হবে।</li>
+        </ul>
     </div>
-    <a href="https://whatsapp.com/channel/0029Vb7NKxuIN9ip9ZKupE0q" class="btn btn-success sticky-btn">সাপোর্ট</a>
+
+    <div class="row g-4">
+        <div class="col-md-4"><div class="task-card"><i class="fab fa-facebook text-primary fs-1"></i><h5>ফেসবুক লাইক</h5><p class="price-badge">১৫ টাকা</p><a href="https://wa.me/আপনার_হোয়াটসঅ্যাপ_নম্বর" class="btn btn-outline-primary btn-sm">প্রুফ জমা দিন</a></div></div>
+        <div class="col-md-4"><div class="task-card"><i class="fab fa-youtube text-danger fs-1"></i><h5>ইউটিউব সাবস্ক্রাইব</h5><p class="price-badge">২৫ টাকা</p><a href="https://wa.me/আপনার_হোয়াটসঅ্যাপ_নম্বর" class="btn btn-outline-danger btn-sm">প্রুফ জমা দিন</a></div></div>
+        <div class="col-md-4"><div class="task-card"><i class="fab fa-tiktok fs-1"></i><h5>টিকটক ফলো</h5><p class="price-badge">২০ টাকা</p><a href="https://wa.me/আপনার_হোয়াটসঅ্যাপ_নম্বর" class="btn btn-outline-dark btn-sm">প্রুফ জমা দিন</a></div></div>
+    </div>
 </div>
 
-<script>
-    function showTab(tab) {
-        document.getElementById('loginForm').classList.toggle('hidden', tab !== 'login');
-        document.getElementById('regForm').classList.toggle('hidden', tab !== 'reg');
-        document.getElementById('loginBtn').classList.toggle('active', tab === 'login');
-        document.getElementById('regBtn').classList.toggle('active', tab === 'reg');
-    }
+<a href="https://wa.me/আপনার_হোয়াটসঅ্যাপ_নম্বর" class="sticky-support btn btn-success btn-lg shadow"><i class="fab fa-whatsapp"></i> সাপোর্ট</a>
 
-    document.getElementById('loginForm').addEventListener('submit', (e) => {
-        e.preventDefault();
+<script>
+    function login() {
         localStorage.setItem('userPhone', document.getElementById('loginPhone').value);
         location.reload();
-    });
-
-    function logout() {
-        localStorage.removeItem('userPhone');
-        location.reload();
     }
-
+    function logout() { localStorage.removeItem('userPhone'); location.reload(); }
+    function toggleForm() { document.getElementById('loginArea').classList.toggle('hidden'); document.getElementById('regArea').classList.toggle('hidden'); }
+    
     window.onload = () => {
         if(localStorage.getItem('userPhone')) {
             document.getElementById('authSection').classList.add('hidden');
             document.getElementById('mainContent').classList.remove('hidden');
         }
     };
-
-    document.getElementById('regForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        fetch('আপনার_গুগল_শিট_URL_এখানে_বসিয়ে_দিন', { method: 'POST', mode: 'no-cors', body: new FormData(this) })
-        .then(() => { alert('একাউন্ট তৈরি হয়েছে, এখন লগইন করুন!'); showTab('login'); });
-    });
 </script>
 </body>
 </html>
