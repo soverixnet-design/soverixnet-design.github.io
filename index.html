@@ -3,107 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EarnStationBD - Premium Micro-Task Platform</title>
+    <title>EarnStationBD - লগইন ও কাজ</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --primary-color: #0d6efd; --secondary-color: #25d366; --dark-bg: #111827; }
-        body { background-color: #f3f4f6; font-family: 'Segoe UI', Arial, sans-serif; color: #374151; }
+        body { background-color: #f4f7f6; font-family: sans-serif; }
         .hidden { display: none !important; }
-        .auth-bg { background: linear-gradient(135deg, #1e3a8a, #4f46e5); min-height: 100vh; display: flex; align-items: center; justify-content: center; }
-        .auth-box { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); width: 100%; max-width: 450px; }
-        
-        /* আপনার আগের ডিজাইন স্টাইল */
-        .hero-area { background: linear-gradient(135deg, #1e3a8a, #4f46e5); color: white; padding: 100px 0; text-align: center; }
-        .section-title { font-size: 32px; font-weight: 700; color: #1f2937; margin-bottom: 30px; text-align: center; }
-        .info-card { background: white; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); padding: 30px; height: 100%; }
-        .footer-dark { background: var(--dark-bg); color: #9ca3af; padding: 60px 0 30px; }
-        .sticky-whatsapp { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; z-index: 999; text-decoration: none; }
+        .auth-container { max-width: 400px; margin: 50px auto; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .task-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; text-align: center; }
+        .task-card i { font-size: 30px; margin-bottom: 10px; }
+        .sticky-btn { position: fixed; bottom: 20px; right: 20px; }
     </style>
 </head>
 <body>
 
-<div id="authSection" class="auth-bg">
-    <div class="auth-box">
-        <h3 class="text-center mb-4 fw-bold text-primary">EarnStationBD</h3>
-        <ul class="nav nav-pills nav-justified mb-4">
-            <li class="nav-item"><a class="nav-link active" id="loginTab" onclick="switchTab('login')">লগইন</a></li>
-            <li class="nav-item"><a class="nav-link" id="regTab" onclick="switchTab('reg')">রেজিস্ট্রেশন</a></li>
-        </ul>
-        <form id="loginForm">
-            <input type="text" class="form-control mb-3" id="loginPhone" placeholder="আপনার ফোন নম্বর" required>
-            <button type="submit" class="btn btn-primary w-100">লগইন করুন</button>
-        </form>
-        <form id="regForm" class="hidden">
-            <input type="text" class="form-control mb-3" name="Name" placeholder="আপনার নাম" required>
-            <input type="text" class="form-control mb-3" name="Phone" placeholder="আপনার ফোন নম্বর" required>
-            <input type="text" class="form-control mb-3" name="Referrer" id="refCode" placeholder="রেফারার আইডি">
-            <button type="submit" class="btn btn-success w-100">একাউন্ট তৈরি করুন</button>
-        </form>
-    </div>
+<div id="authSection" class="container auth-container">
+    <h3 class="text-center mb-4">EarnStationBD</h3>
+    <ul class="nav nav-tabs mb-3">
+        <li class="nav-item"><a class="nav-link active" id="loginBtn" onclick="showTab('login')">লগইন</a></li>
+        <li class="nav-item"><a class="nav-link" id="regBtn" onclick="showTab('reg')">রেজিস্ট্রেশন</a></li>
+    </ul>
+    
+    <form id="loginForm">
+        <input type="text" class="form-control mb-3" id="loginPhone" placeholder="ফোন নম্বর" required>
+        <button type="submit" class="btn btn-primary w-100">লগইন করুন</button>
+    </form>
+
+    <form id="regForm" class="hidden">
+        <input type="text" class="form-control mb-3" name="Name" placeholder="আপনার নাম" required>
+        <input type="text" class="form-control mb-3" name="Phone" placeholder="আপনার ফোন নম্বর" required>
+        <input type="text" class="form-control mb-3" name="Referrer" placeholder="রেফারার আইডি">
+        <button type="submit" class="btn btn-success w-100">একাউন্ট তৈরি করুন</button>
+    </form>
 </div>
 
-<div id="mainContent" class="hidden">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
-        <div class="container">
-            <a class="navbar-brand fw-bold fs-3 text-primary" href="#">EarnStationBD</a>
-            <button class="btn btn-outline-danger btn-sm" onclick="logout()">লগ-আউট</button>
-        </div>
-    </nav>
-
-    <div class="hero-area">
-        <h1>EarnStationBD তে স্বাগতম</h1>
+<div id="mainContent" class="hidden container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4>কাজসমূহ</h4>
+        <button class="btn btn-danger" onclick="logout()">লগ-আউট</button>
     </div>
 
-    <div class="container my-5" id="tasks">
-        <h2 class="section-title">আমাদের কাজসমূহ</h2>
-        <div class="row g-4">
-            <div class="col-lg-4"><div class="info-card"><h5>ফেসবুক</h5><p>১৫ টাকা</p></div></div>
-            <div class="col-lg-4"><div class="info-card"><h5>ইনস্টাগ্রাম</h5><p>২০ টাকা</p></div></div>
-            <div class="col-lg-4"><div class="info-card"><h5>হোয়াটসঅ্যাপ</h5><p>২৫ টাকা</p></div></div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="task-card border-top border-primary border-4">
+                <i class="fab fa-facebook text-primary"></i>
+                <h5>ফেসবুক লাইক</h5>
+                <p><strong>১৫ টাকা।</strong> পেজে লাইক দিয়ে স্ক্রিনশট নিন।</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="task-card border-top border-danger border-4">
+                <i class="fab fa-youtube text-danger"></i>
+                <h5>ইউটিউব সাব</h5>
+                <p><strong>২৫ টাকা।</strong> চ্যানেল সাবস্ক্রাইব করে স্ক্রিনশট দিন।</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="task-card border-top border-dark border-4">
+                <i class="fab fa-tiktok"></i>
+                <h5>টিকটক ফলো</h5>
+                <p><strong>২০ টাকা।</strong> আইডি ফলো করে স্ক্রিনশট দিন।</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="task-card border-top border-warning border-4">
+                <i class="fab fa-instagram text-warning"></i>
+                <h5>ইনস্টাগ্রাম ফলো</h5>
+                <p><strong>২০ টাকা।</strong> ফলো করে স্ক্রিনশট নিন।</p>
+            </div>
         </div>
     </div>
-
-    <footer class="footer-dark text-center">© 2026 EarnStationBD</footer>
-    <a href="https://whatsapp.com/channel/0029Vb7NKxuIN9ip9ZKupE0q" class="sticky-whatsapp"><i class="fab fa-whatsapp"></i> সাপোর্ট</a>
+    <a href="https://whatsapp.com/channel/0029Vb7NKxuIN9ip9ZKupE0q" class="btn btn-success sticky-btn">সাপোর্ট</a>
 </div>
 
 <script>
-// ফর্ম সুইচিং
-function switchTab(type) {
-    document.getElementById('loginForm').classList.toggle('hidden', type !== 'login');
-    document.getElementById('regForm').classList.toggle('hidden', type !== 'reg');
-    document.getElementById('loginTab').classList.toggle('active', type === 'login');
-    document.getElementById('regTab').classList.toggle('active', type === 'reg');
-}
-
-// লগইন
-document.getElementById('loginForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    localStorage.setItem('userPhone', document.getElementById('loginPhone').value);
-    location.reload();
-});
-
-// লগআউট
-function logout() {
-    localStorage.removeItem('userPhone');
-    location.reload();
-}
-
-// অটো-লগইন চেক
-window.onload = function() {
-    if (localStorage.getItem('userPhone')) {
-        document.getElementById('authSection').classList.add('hidden');
-        document.getElementById('mainContent').classList.remove('hidden');
+    function showTab(tab) {
+        document.getElementById('loginForm').classList.toggle('hidden', tab !== 'login');
+        document.getElementById('regForm').classList.toggle('hidden', tab !== 'reg');
+        document.getElementById('loginBtn').classList.toggle('active', tab === 'login');
+        document.getElementById('regBtn').classList.toggle('active', tab === 'reg');
     }
-};
 
-// রেজিস্ট্রেশন (শিটে ডাটা পাঠানো)
-document.getElementById('regForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    fetch('YOUR_GOOGLE_SCRIPT_URL_HERE', { method: 'POST', mode: 'no-cors', body: new FormData(this)})
-    .then(() => { alert('একাউন্ট তৈরি হয়েছে!'); switchTab('login'); });
-});
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        localStorage.setItem('userPhone', document.getElementById('loginPhone').value);
+        location.reload();
+    });
+
+    function logout() {
+        localStorage.removeItem('userPhone');
+        location.reload();
+    }
+
+    window.onload = () => {
+        if(localStorage.getItem('userPhone')) {
+            document.getElementById('authSection').classList.add('hidden');
+            document.getElementById('mainContent').classList.remove('hidden');
+        }
+    };
+
+    document.getElementById('regForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        fetch('আপনার_গুগল_শিট_URL_এখানে_বসিয়ে_দিন', { method: 'POST', mode: 'no-cors', body: new FormData(this) })
+        .then(() => { alert('একাউন্ট তৈরি হয়েছে, এখন লগইন করুন!'); showTab('login'); });
+    });
 </script>
 </body>
 </html>
