@@ -81,6 +81,27 @@
 
 <!-- Section: Active Tasks With Full Details -->
 <div class="container my-5 py-4" id="tasks">
+    <div class="container my-5 py-4" id="submission-form">
+    <div class="card p-4 shadow-sm border-0 rounded-4">
+        <h4 class="mb-3 text-primary">আপনার তথ্য এবং রেফারার কোড জমা দিন</h4>
+        <form id="referralForm">
+            <div class="mb-3">
+                <label class="form-label">আপনার নাম</label>
+                <input type="text" class="form-control" name="Name" placeholder="আপনার নাম লিখুন" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">মোবাইল নম্বর</label>
+                <input type="text" class="form-control" name="Phone" placeholder="আপনার ফোন নম্বর" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">রেফারার কোড (ঐচ্ছিক)</label>
+                <input type="text" class="form-control" id="referrer" name="Referrer" placeholder="রেফারার আইডি দিন">
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg w-100">সাবমিট করুন</button>
+        </form>
+    </div>
+    </div>
+    
     <h2 class="section-title">আমাদের কাজসমূহ এবং বিস্তারিত গাইডলাইন</h2>
     <p class="text-center text-muted mb-5">আমাদের ওয়েবসাইটে মূলত কী কী কাজ থাকবে এবং কাজগুলো আপনাকে কীভাবে করতে হবে তা নিচে বিস্তারিত দেওয়া হলো:</p>
     
@@ -166,5 +187,31 @@
 </a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+</body><script>
+// ১. ইউআরএল থেকে রেফারার কোড অটোমেটিক নেওয়া (যেমন: yoursite.com/?ref=agent01)
+const urlParams = new URLSearchParams(window.location.search);
+const currentRef = urlParams.get('ref');
+if (currentRef) {
+    document.getElementById('referrer').value = currentRef;
+}
+
+// ২. ফর্ম সাবমিট হ্যান্ডলার (গুগল শিটে ডাটা পাঠানো)
+document.getElementById('referralForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // আপনার সেই গুগল স্ক্রিপ্ট লিঙ্কটি এখানে বসান
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxQ7RQ46bwv9ZLAy6wMmU75d9TScsZlGXT6Mn4Ds_PpHLJmPZeeQBlb7p3ZICABO0tvmQ/exec';
+    
+    fetch(scriptURL, { method: 'POST', body: new FormData(this)})
+      .then(response => {
+          alert('ধন্যবাদ! আপনার তথ্য সফলভাবে জমা হয়েছে।');
+          document.getElementById('referralForm').reset();
+      })
+      .catch(error => {
+          alert('দুঃখিত, কোনো সমস্যা হয়েছে। আবার চেষ্টা করুন।');
+          console.error('Error!', error.message);
+      });
+});
+</script>
+    
 </html>
