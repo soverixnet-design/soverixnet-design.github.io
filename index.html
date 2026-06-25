@@ -15,16 +15,10 @@
         
         /* আপনার আগের ডিজাইন স্টাইল */
         .hero-area { background: linear-gradient(135deg, #1e3a8a, #4f46e5); color: white; padding: 100px 0; text-align: center; }
-        .section-title { font-size: 32px; font-weight: 700; color: #1f2937; margin-bottom: 30px; text-align: center; position: relative; }
-        .section-title::after { content: ''; width: 60px; height: 4px; background: var(--primary-color); display: block; margin: 10px auto 0; border-radius: 2px; }
-        .info-card { background: white; border: none; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); padding: 30px; transition: 0.3s; height: 100%; }
-        .info-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .section-title { font-size: 32px; font-weight: 700; color: #1f2937; margin-bottom: 30px; text-align: center; }
+        .info-card { background: white; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); padding: 30px; height: 100%; }
         .footer-dark { background: var(--dark-bg); color: #9ca3af; padding: 60px 0 30px; }
-        .btn-premium { padding: 15px 35px; font-size: 18px; font-weight: 600; border-radius: 50px; transition: 0.3s; }
-        .price-badge { background: #fff3cd; color: #856404; font-size: 20px; font-weight: bold; border: 1px solid #ffeeba; display: inline-block; padding: 5px 15px; border-radius: 5px; }
-        .sticky-whatsapp { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; box-shadow: 0 8px 24px rgba(37,211,102,0.3); z-index: 9999; text-decoration: none; font-weight: bold; font-size: 16px; display: flex; align-items: center; gap: 10px; }
-        .notice-board { background: #fff5f5; border-left: 6px solid #dc3545; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .step-list { text-align: left; background: #f8fafc; padding: 15px; border-radius: 10px; font-size: 14px; border-left: 4px solid #6c757d; }
+        .sticky-whatsapp { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; z-index: 999; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -37,12 +31,12 @@
             <li class="nav-item"><a class="nav-link" id="regTab" onclick="switchTab('reg')">রেজিস্ট্রেশন</a></li>
         </ul>
         <form id="loginForm">
-            <input type="text" class="form-control mb-3" id="loginPhone" placeholder="মোবাইল নম্বর" required>
+            <input type="text" class="form-control mb-3" id="loginPhone" placeholder="আপনার ফোন নম্বর" required>
             <button type="submit" class="btn btn-primary w-100">লগইন করুন</button>
         </form>
         <form id="regForm" class="hidden">
             <input type="text" class="form-control mb-3" name="Name" placeholder="আপনার নাম" required>
-            <input type="text" class="form-control mb-3" name="Phone" placeholder="মোবাইল নম্বর" required>
+            <input type="text" class="form-control mb-3" name="Phone" placeholder="আপনার ফোন নম্বর" required>
             <input type="text" class="form-control mb-3" name="Referrer" id="refCode" placeholder="রেফারার আইডি">
             <button type="submit" class="btn btn-success w-100">একাউন্ট তৈরি করুন</button>
         </form>
@@ -50,7 +44,6 @@
 </div>
 
 <div id="mainContent" class="hidden">
-    
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
         <div class="container">
             <a class="navbar-brand fw-bold fs-3 text-primary" href="#">EarnStationBD</a>
@@ -59,37 +52,380 @@
     </nav>
 
     <div class="hero-area">
-        <div class="container">
-            <span class="badge bg-danger text-white px-4 py-2 rounded-pill fw-bold mb-3 fs-6">📢 অফিশিয়াল নোটিশ: সাইট খুব শীঘ্রই লাইভ হচ্ছে!</span>
-            <h1 class="display-4 fw-bold mb-3">EarnStationBD তে আপনাকে স্বাগতম</h1>
-            <p class="fs-5">আপনার অ্যাকাউন্ট দিয়ে লগইন করেছেন, এখন কাজ শুরু করুন!</p>
-        </div>
+        <h1>EarnStationBD তে স্বাগতম</h1>
     </div>
 
-    <div class="container my-5 py-2" id="recruitment">
-        <div class="notice-board">
-            <h3 class="fw-bold text-danger mb-3"><i class="fas fa-bullhorn"></i> একটি বিশেষ ঘোষণা!</h3>
-            <p class="fs-5 text-dark">আমাদের মূল কাজগুলো ওয়েবসাইটে অতি দ্রুত ও নির্দিষ্ট সময়ে শুরু করা হবে।</p>
-            <a href="https://whatsapp.com/channel/0029Vb7NKxuIN9ip9ZKupE0q" class="btn btn-danger btn-lg">চ্যানেলে জয়েন করুন <i class="fas fa-arrow-right"></i></a>
-        </div>
-    </div>
+    <div class="container my-5" id="tasks">
+        <h2 class="section-title"><?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+    <title>Soverix Net | Premium Unrestricted VPN Service</title>
+    
+    <link href='https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&amp;family=Rajdhani:wght@400;600;700&amp;display=swap' rel='stylesheet'/>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' rel='stylesheet'/>
+    
+    <b:skin><![CDATA[
+/* সরাতে হলে নিচের এই কোডটি যোগ করুন */
+#Attribution1, .attribution {
+    display: none !important;
+    visibility: hidden !important;
+}
 
-    <div class="container my-5 py-4" id="tasks">
-        <h2 class="section-title">আমাদের কাজসমূহ এবং বিস্তারিত গাইডলাইন</h2>
+
+        #navbar-iframe, .quickedit, .feed-links, #blog-pager, .status-msg-border { display: none !important; }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: #060b13;
+            color: #e2e8f0;
+            font-family: 'Rajdhani', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* মেইন ব্যানার */
+        .hero-banner {
+            background: linear-gradient(rgba(6, 11, 19, 0.85), rgba(6, 11, 19, 0.9)), url('https://images.unsplash.com/photo-1563986768609-322da13575f3');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 20px;
+            text-align: center;
+            border-bottom: 3px solid #00d2ff;
+        }
+
+        .hero-banner h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 55px;
+            color: #00d2ff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+        }
+
+        .hero-banner p { font-size: 22px; color: #94a3b8; margin-bottom: 25px; }
+
+        .live-news {
+            background: linear-gradient(90deg, #ef4444, #b91c1c);
+            color: #fff;
+            padding: 10px 25px;
+            font-weight: bold;
+            display: inline-block;
+            border-radius: 50px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+            animation: blink 2s infinite;
+        }
+        @keyframes blink { 0% {opacity: 1;} 50% {opacity: 0.7;} 100% {opacity: 1;} }
+
+        .status-bar {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(57, 255, 20, 0.1);
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            font-weight: bold;
+            color: #39ff14;
+        }
+        .pulse {
+            width: 12px; height: 12px; background: #39ff14; border-radius: 50%;
+            box-shadow: 0 0 10px #39ff14; animation: pulse-animation 1.5s infinite;
+        }
+        @keyframes pulse-animation { 0% {transform: scale(0.95);} 70% {transform: scale(1.2); opacity: 0.5;} 100% {transform: scale(0.95);} }
+
+        .container { max-width: 1150px; margin: 0 auto; padding: 40px 20px; }
+        
+        /* কান্ট্রি ট্যাব বাটন - রেসপনসিভ ফ্লেক্স */
+        .main-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+        .tab-btn {
+            background: #111827; border: 2px solid #1f2937; color: #fff;
+            padding: 14px 30px; border-radius: 50px; cursor: pointer;
+            font-size: 18px; font-weight: bold; transition: 0.3s;
+        }
+        .tab-btn.active { background: #00d2ff; border-color: #00d2ff; color: #060b13; box-shadow: 0 0 25px rgba(0, 210, 255, 0.4); }
+
+        .content-section { display: none; }
+        .content-section.active { display: block; animation: fadeInUp 0.5s; }
+        @keyframes fadeInUp { from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);} }
+
+        /* সেকশন ব্যানার */
+        .section-banner {
+            width: 100%; height: 220px; border-radius: 20px; overflow: hidden;
+            margin-bottom: 35px; border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+        .section-banner img { width: 100%; height: 100%; object-fit: cover; }
+        .section-banner-title {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(6, 11, 19, 0.95));
+            padding: 30px; font-size: 28px; font-weight: bold; color: #fff;
+        }
+
+        /* গ্রিড ও কার্ড */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card {
+            background: #0f172a; border: 1px solid #1e293b; border-radius: 24px;
+            padding: 35px; text-align: center; position: relative; transition: 0.3s;
+            display: flex; flex-direction: column; justify-content: space-between;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .card:hover { border-color: #00d2ff; transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0, 210, 255, 0.1); }
+        .sim-icon { font-size: 45px; color: #00d2ff; margin-bottom: 15px; }
+        .price { font-size: 45px; font-weight: 800; color: #39ff14; margin: 15px 0; }
+        
+        .unlimited-badge {
+            background: #39ff14; color: #000; padding: 6px 18px;
+            border-radius: 50px; font-size: 13px; font-weight: bold;
+            position: absolute; top: 20px; right: 20px;
+        }
+
+        .card ul { list-style: none; text-align: left; margin: 25px 0; }
+        .card ul li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; font-size: 17px; }
+        .card ul li i { color: #39ff14; margin-top: 5px; }
+        .important-note { color: #fbbf24; font-weight: bold; font-size: 15px; }
+
+        /* বাটন */
+        .btn {
+            display: block; width: 100%; padding: 16px; background: #00d2ff;
+            color: #060b13; text-decoration: none; border-radius: 14px;
+            font-weight: bold; font-size: 17px; transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 210, 255, 0.2);
+            margin-top: auto;
+        }
+        .btn:hover { background: #39ff14; box-shadow: 0 4px 15px rgba(57, 255, 20, 0.4); }
+
+        .sub-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 35px; }
+        .sub-btn { background: #1e293b; color: #fff; border: none; padding: 12px 25px; border-radius: 10px; cursor: pointer; font-weight: bold; font-size: 16px; }
+        .sub-btn.active { background: #00d2ff; color: #060b13; }
+
+        /* ফিচার সেকশন */
+        .features-section {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+            background: #0f172a; padding: 50px; border-radius: 30px;
+            margin-top: 60px; border: 1px solid #1e293b; align-items: center;
+        }
+        .features-content h2 { font-size: 32px; color: #00d2ff; margin-bottom: 20px; font-family: 'Orbitron', sans-serif; }
+        .features-img { width: 100%; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1); }
+        .features-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .feature-item { display: flex; gap: 15px; margin-bottom: 20px; }
+        .feature-item i { font-size: 24px; color: #39ff14; }
+        .feature-item h4 { font-size: 19px; color: #fff; margin-bottom: 5px; }
+        .f-icon-wrap { display: inline-block; }
+
+        /* গাইড বক্স */
+        .guide-box {
+            background: #111827; padding: 45px; border-radius: 25px;
+            margin-top: 60px; border: 1px dashed #00d2ff;
+        }
+        .guide-box h2 { color: #00d2ff; text-align: center; margin-bottom: 30px; font-family: 'Orbitron', sans-serif; }
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
+        .step { text-align: center; }
+        .step-num {
+            width: 45px; height: 45px; background: #00d2ff; color: #060b13;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 15px; font-weight: bold; font-size: 22px;
+        }
+
+        /* ডাউনলোড এরিয়া */
+        .download-container {
+            display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px;
+            background: linear-gradient(135deg, rgba(11, 210, 255, 0.1), transparent);
+            padding: 50px; margin-top: 60px; border-radius: 30px; border: 1px solid rgba(0, 210, 255, 0.1);
+            align-items: center;
+        }
+        .dl-btn {
+            display: inline-flex; align-items: center; gap: 12px;
+            background: #39ff14; color: #000; padding: 20px 45px;
+            border-radius: 15px; text-decoration: none; font-weight: 800; font-size: 22px;
+            box-shadow: 0 5px 20px rgba(57, 255, 20, 0.3); transition: 0.3s;
+        }
+        .dl-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(57, 255, 20, 0.5); }
+        .app-mockup-img { width: 100%; max-height: 320px; object-fit: contain; }
+
+        /* ফ্লোটিং হোয়াটসঅ্যাপ */
+        .wa-float {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #25d366; width: 65px; height: 65px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 38px; box-shadow: 0 0 25px rgba(37, 211, 102, 0.6); z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            .features-section, .download-container { grid-template-columns: 1fr; padding: 30px; }
+            .hero-banner h1 { font-size: 35px; }
+            .tab-btn { padding: 10px 20px; font-size: 15px; }
+            .app-mockup-img { display: none; }
+        }
+    ]]></b:skin>
+</head>
+<body>
+    <b:section id='main-section' showaddelement='yes'>
+      <b:widget id='HTML2' locked='false' title='Live FIFA world cup' type='HTML'>
+        <b:widget-settings>
+          <b:widget-setting name='content'><![CDATA[<div id="live-sports-widget" style="border: 2px solid #0056b3; border-radius: 10px; padding: 15px; background-color: #f8f9fa; max-width: 400px; margin: 20px auto; font-family: 'Arial', sans-serif;">
+  <h2 style="text-align: center; color: #0056b3; margin-bottom: 15px;">FIFA 2026 Live Updates</h2>
+  
+  <div id="score-content" style="text-align: center; font-size: 16px; color: #333;">
+    <p>সরাসরি খেলার স্কোর এবং আপডেট দেখতে নিচে ক্লিক করুন:</p>
+    <a href="https://www.google.com/search?q=FIFA+World+Cup+2026+live+scores" target="_blank" style="display: block; background: #28a745; color: white; padding: 10px; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px;">
+      এখনই লাইভ স্কোর দেখুন
+    </a>
+  </div>
+  
+  <p style="text-align: center; font-size: 12px; color: #666; margin-top: 15px;">
+    * সব আপডেট অফিশিয়াল গুগল সোর্স থেকে সংগ্রহ করা।
+  </p>
+</div>]]></b:widget-setting>
+        </b:widget-settings>
+        <b:includable id='main'>
+  <!-- only display title if it's non-empty -->
+  <b:if cond='data:title != &quot;&quot;'>
+    <h2 class='title'><data:title/></h2>
+  </b:if>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+
+  <b:include name='quickedit'/>
+</b:includable>
+      </b:widget>
+      <b:widget id='Stats1' locked='false' title='মোট পৃষ্ঠাদর্শন' type='Stats'>
+        <b:widget-settings>
+          <b:widget-setting name='showGraphicalCounter'>true</b:widget-setting>
+          <b:widget-setting name='showAnimatedCounter'>true</b:widget-setting>
+          <b:widget-setting name='showSparkline'>true</b:widget-setting>
+          <b:widget-setting name='sparklineStyle'>BLACK_TRANSPARENT</b:widget-setting>
+          <b:widget-setting name='timeRange'>ALL_TIME</b:widget-setting>
+        </b:widget-settings>
+        <b:includable id='main'>
+  <b:if cond='data:title != &quot;&quot;'><h2><data:title/></h2></b:if>
+  <div class='widget-content'>
+    <!-- Content is going to be visible when data will be fetched from server. -->
+    <div expr:id='data:widget.instanceId + &quot;_content&quot;' style='display: none;'>
+      <!-- Counter and image will be injected later via AJAX call. -->
+      <b:if cond='data:showSparkline'>
+        <script src='https://www.gstatic.com/charts/loader.js' type='text/javascript'/>
+        <span expr:id='data:widget.instanceId + &quot;_sparklinespan&quot;' style='display:inline-block; width:75px; height:30px'/>
+      </b:if>
+      <span expr:class='&quot;counter-wrapper &quot; + (data:showGraphicalCounter ? &quot;graph-counter-wrapper&quot; : &quot;text-counter-wrapper&quot;)' expr:id='data:widget.instanceId + &quot;_totalCount&quot;'>
+      </span>
+      <b:include name='quickedit'/>
+    </div>
+  </div>
+</b:includable>
+      </b:widget>
+      <b:widget id='Blog1' locked='true' title='ব্লগ পোস্টগুলি' type='Blog' version='1'>
+        <b:widget-settings>
+          <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+          <b:widget-setting name='style.textcolor'>#ffffff</b:widget-setting>
+          <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+          <b:widget-setting name='authorLabel'>By</b:widget-setting>
+          <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+          <b:widget-setting name='style.urlcolor'>#ffffff</b:widget-setting>
+          <b:widget-setting name='showAuthor'>false</b:widget-setting>
+          <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
+          <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+          <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
+          <b:widget-setting name='reactionsLabel'/>
+          <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+          <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+          <b:widget-setting name='showLabels'>true</b:widget-setting>
+          <b:widget-setting name='showLocation'>true</b:widget-setting>
+          <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+          <b:widget-setting name='postsPerAd'>3</b:widget-setting>
+          <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+          <b:widget-setting name='style.bordercolor'>#ffffff</b:widget-setting>
+          <b:widget-setting name='showInlineAds'>true</b:widget-setting>
+          <b:widget-setting name='showReactions'>false</b:widget-setting>
+        </b:widget-settings>
+        <b:includable id='main'>
+                
+                <div class='hero-banner'>
+                    <div class='live-news'>📢 FIFA WORLD CUP 2026 LIVE on soverix.xyz</div>
+                    <h1>Soverix Net</h1>
+                    <p>Premium &amp; Unrestricted Ultra High-Speed VPN Solution</p>
+                    <div class='status-bar'>
+                        <div class='pulse'/> Premium Servers Are Active
+                    </div>
+                </div>
+
+                <div class='container'>
+                    
+                    <div class='main-tabs'>
+                        <button class='tab-btn active' onclick='openCountry(event, &quot;oman&quot;)'>🇴🇲 OMAN</button>
+                        <button class='tab-btn' onclick='openCountry(event, &quot;saudi&quot;)'>🇸🇦 KSA</button>
+                        <button class='tab-btn' onclick='openCountry(event, &quot;qatar&quot;)'>🇶🇦 QATAR</button>
+                        <button class='tab-btn' onclick='openCountry(event, &quot;uae&quot;)'>🇦🇪 UAE</button>
+                        <button class='tab-btn' onclick='openCountry(event, &quot;kuwait&quot;)'>🇰🇼 KUWAIT</button>
+                        <button class='tab-btn' onclick='openCountry(event, &quot;malaysia&quot;)'>🇲🇾 MALAYSIA</button>
+                    </div>
+
+                    <div class='content-section active' id='oman'>
+                        <div class='section-banner'>
+                            <img alt='Oman Premium Connection' src='https://images.unsplash.com/photo-1573164713988-8665fc963095'/>
+                            <div class='section-banner-title'>🇴🇲 Oman Red Bull Mobile Special Packages</div>
+                        </div>
+                        
+                        <div class='grid'>
+                            <div class='card'>
+                                <div>
+                                    <div class='unlimited-badge'>UNLIMITED DATA</div>
+                                    <div class='sim-icon'><i class='fa-solid fa-bolt-lightning'/></div>
+                                    <h3>Red Bull Mobile Plan</h3>
+                                    <div class='price'>3 OMR</div>
+                                    <ul>
+                                        <li class='important-note'><i class='fa-solid fa-circle-exclamation'/> Red Bull App থ&#2503;ক&#2503; প&#2509;য&#2494;ক&#2503;জ চ&#2494;ল&#2497; কর&#2497;ন&#2404;</li>
+                                        <li><i class='fa-solid fa-check'/> unlimited  GB অফ&#2495;স&#2495;য়&#2494;ল ড&#2503;ট&#2494;&#2404;</li>
+                                        <li style='color:#39ff14; font-weight:bold;'><i class='fa-solid fa-star'/> একট&#2495;ভ কর&#2494;র পর থ&#2503;ক&#2503;ই আনল&#2495;ম&#2495;ট&#2503;ড ভ&#2495;প&#2495;এন!</li>
+                                        <li><i class='fa-solid fa-clock'/> ম&#2503;য়&#2494;দ: ৩০ দ&#2495;ন&#2404;</li>
+                                    </ul>
+                                </div>
+                                <a class='btn' href='https://wa.me/8801342930870?text=আসসালামু%20আলাইকুম,%20আমি%20Oman%20Red%20Bull%203%20OMR%20প্যাকেজের%20ভিপিএন%20পিন%20নিতে%20চাই।' target='_blank'>এই প&#2509;য&#2494;ক&#2503;জট&#2495; কর&#2494;র জন&#2509;য এখ&#2494;ন&#2503; ক&#2509;ল&#2495;ক কর&#2497;ন</a>
+                            </div>
+                            <div class='card'>
+                                <div>
+                                    <div class='unlimited-badge'>UNLIMITED DATA</div>
+                                    <div class='sim-icon'><i class='fa-solid fa-bolt-lightning'/></div>
+                                    <h3>Red Bull Mobile Plan</h3>
+                                    <div class='price'>4 OMR</div>
+                                    <ul>
+                                        <li class='important-note'><i class='fa-solid fa-circle-exclamation'/> Red Bull App থ&#2503;ক&#2503; প&#2509;য&#2494;ক&#2503;জ চ&#2494;ল&#2497; কর&#2497;ন&#2404;</li>
+                                        <li><i class='fa-solid fa-check'/> unlimited  GB অফ&#2495;স&#2495;য়&#2494;ল ড&#2503;ট&#2494;&#2404;</li>
+                                        <li style='color:#39ff14; font-weight:bold;'><i class='fa-solid fa-star'/> একট&#2495;ভ কর&#2494;র পর থ&#2503;ক&#2503;ই আনল&#2495;ম&#2495;ট&#2503;ড ভ&#2495;প&#2495;এন!</li>
+                                        <li><i class='fa-solid fa-clock'/> ম&#2503;য়&#2494;দ: ৩০ দ&#2495;ন&#2404;</li>
+                                    </ul>
+                                </div>
+                                <a class='btn' href='https://wa.me/8801342930870?text=আসসালামু%20আলাইকুম,%20আমি%20Oman%20Red%20Bull%204%20OMR%20প্যাকেজের%20ভিপিএন%20পিন%20নিতে%20চাই।' target='_blank'>এই প&#2509;য&#2494;ক&#2503;জট&#2495; কর&#2494;র জন&#2509;য এখ&#2494;ন&#2503; ক&#2509;ল&#2495;ক কর&#2497;ন</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class='content-section' id='saudi'>
+                        <div class='section-banner'>
+                            <img alt='Saudi High Speed Servers' src='https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5'/>
+                            <div class='section-banner-title'>🇸🇦 KSA Free &amp; Paid Premium Packages</div>
+                        </div>
+
+                        <div class='sub-tabs'>
+                         </h2>
         <div class="row g-4">
-            <div class="col-lg-4"><div class="info-card border-top border-primary border-4 text-center"><i class="fab fa-facebook fa-3x text-primary mb-2"></i><h5>ফেসবুক লাইক ও ফলো</h5><div class="price-badge">১৫.০০ টাকা</div><p>পেজে লাইক ও ফলো করুন।</p></div></div>
-            <div class="col-lg-4"><div class="info-card border-top border-danger border-4 text-center"><i class="fab fa-instagram fa-3x text-danger mb-2"></i><h5>ইনস্টাগ্রাম ফলো</h5><div class="price-badge">২০.০০ টাকা</div><p>প্রোফাইল ফলো করুন।</p></div></div>
-            <div class="col-lg-4"><div class="info-card border-top border-success border-4 text-center"><i class="fab fa-whatsapp fa-3x text-success mb-2"></i><h5>হোয়াটসঅ্যাপ বোনাস</h5><div class="price-badge">২৫.০০ টাকা</div><p>চ্যানেলে জয়েন করুন।</p></div></div>
+            <div class="col-lg-4"><div class="info-card"><h5>ফেসবুক</h5><p>১৫ টাকা</p></div></div>
+            <div class="col-lg-4"><div class="info-card"><h5>ইনস্টাগ্রাম</h5><p>২০ টাকা</p></div></div>
+            <div class="col-lg-4"><div class="info-card"><h5>হোয়াটসঅ্যাপ</h5><p>২৫ টাকা</p></div></div>
         </div>
     </div>
 
-    <footer class="footer-dark text-center">
-        <div class="container"><p>© 2026 EarnStationBD | সর্বস্বত্ব সংরক্ষিত।</p></div>
-    </footer>
+    <footer class="footer-dark text-center">© 2026 EarnStationBD</footer>
     <a href="https://whatsapp.com/channel/0029Vb7NKxuIN9ip9ZKupE0q" class="sticky-whatsapp"><i class="fab fa-whatsapp"></i> সাপোর্ট</a>
 </div>
 
 <script>
+// ফর্ম সুইচিং
 function switchTab(type) {
     document.getElementById('loginForm').classList.toggle('hidden', type !== 'login');
     document.getElementById('regForm').classList.toggle('hidden', type !== 'reg');
@@ -97,30 +433,32 @@ function switchTab(type) {
     document.getElementById('regTab').classList.toggle('active', type === 'reg');
 }
 
+// লগইন
 document.getElementById('loginForm').addEventListener('submit', (e) => {
     e.preventDefault();
     localStorage.setItem('userPhone', document.getElementById('loginPhone').value);
     location.reload();
 });
 
+// লগআউট
 function logout() {
     localStorage.removeItem('userPhone');
     location.reload();
 }
 
+// অটো-লগইন চেক
 window.onload = function() {
     if (localStorage.getItem('userPhone')) {
         document.getElementById('authSection').classList.add('hidden');
         document.getElementById('mainContent').classList.remove('hidden');
     }
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('ref')) document.getElementById('refCode').value = urlParams.get('ref');
 };
 
+// রেজিস্ট্রেশন (শিটে ডাটা পাঠানো)
 document.getElementById('regForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    fetch('https://script.google.com/macros/s/AKfycbxQ7RQ46bwv9ZLAy6wMmU75d9TScsZlGXT6Mn4Ds_PpHLJmPZeeQBlb7p3ZICABO0tvmQ/exec', { method: 'POST', mode: 'no-cors', body: new FormData(this)})
-    .then(() => { alert('একাউন্ট তৈরি হয়েছে! এখন লগইন করুন।'); switchTab('login'); });
+    fetch('YOUR_GOOGLE_SCRIPT_URL_HERE', { method: 'POST', mode: 'no-cors', body: new FormData(this)})
+    .then(() => { alert('একাউন্ট তৈরি হয়েছে!'); switchTab('login'); });
 });
 </script>
 </body>
