@@ -7,52 +7,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .hidden { display: none !important; }
-        .auth-bg { background: linear-gradient(135deg, #1e3a8a, #4f46e5); min-height: 100vh; display: flex; align-items: center; justify-content: center; }
-        /* আপনার আগের ডিজাইন স্টাইল এখানে থাকবে */
-        .hero-area { background: linear-gradient(135deg, #1e3a8a, #4f46e5); color: white; padding: 100px 0; text-align: center; }
-        .footer-dark { background: #111827; color: #9ca3af; padding: 60px 0 30px; }
-    </style>
-</head>
-<body>
-
-<div id="authSection" class="auth-bg">
-    <div class="container">
-        <div class="card p-4 col-md-5 mx-auto">
-            <h3>EarnStationBD এ স্বাগতম</h3>
-            <p>আপনার তথ্য দিয়ে কাজ শুরু করুন।</p>
-            <form id="referralForm">
-                <input type="text" class="form-control mb-3" name="Name" placeholder="আপনার নাম" required>
-                <input type="text" class="form-control mb-3" name="Phone" placeholder="মোবাইল নম্বর" required>
-                <input type="text" class="form-control mb-3" id="referrer" name="Referrer" placeholder="রেফারার আইডি">
-                <button type="submit" class="btn btn-primary w-100">সাবমিট করুন</button>
-            </form>
-        </div>
-    </div>
-</div>
-
-<div id="mainContent" class="hidden">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
-        <div class="container"><a class="navbar-brand text-primary" href="#">EarnStationBD</a></div>
-    </nav>
-
-    <div class="hero-area text-center">
-        <h1>আমাদের প্ল্যাটফর্মে আপনাকে স্বাগতম!</h1>
-    </div>
-
-    <div class="container my-5">
-        <h2>আমাদের কাজসমূহ</h2>
-        <p><!DOCTYPE html>
-<html lang="bn">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EarnStationBD - Premium Micro-Task Platform</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
         :root { --primary-color: #0d6efd; --secondary-color: #25d366; --dark-bg: #111827; }
         body { background-color: #f3f4f6; font-family: 'Segoe UI', Arial, sans-serif; color: #374151; }
+        .hidden { display: none !important; }
+        .auth-bg { background: linear-gradient(135deg, #1e3a8a, #4f46e5); min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .auth-box { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); width: 100%; max-width: 450px; }
+        
+        /* আপনার আগের ডিজাইন স্টাইল */
         .hero-area { background: linear-gradient(135deg, #1e3a8a, #4f46e5); color: white; padding: 100px 0; text-align: center; }
         .section-title { font-size: 32px; font-weight: 700; color: #1f2937; margin-bottom: 30px; text-align: center; position: relative; }
         .section-title::after { content: ''; width: 60px; height: 4px; background: var(--primary-color); display: block; margin: 10px auto 0; border-radius: 2px; }
@@ -68,181 +29,99 @@
 </head>
 <body>
 
-<!-- Navigation Bar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
-    <div class="container">
-        <a class="navbar-brand fw-bold fs-3 text-primary" href="#">EarnStationBD</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav gap-3 fw-semibold">
-                <li class="nav-item"><a class="nav-link text-dark" href="#recruitment">ম্যানেজার নিয়োগ</a></li>
-                <li class="nav-item"><a class="nav-link text-dark" href="#tasks">কাজের বিবরণ</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- Hero Section -->
-<div class="hero-area">
-    <div class="container">
-        <span class="badge bg-danger text-white px-4 py-2 rounded-pill fw-bold mb-3 fs-6">📢 অফিশিয়াল নোটিশ: সাইট খুব শীঘ্রই লাইভ হচ্ছে!</span>
-        <h1 class="display-4 fw-bold mb-3">EarnStationBD তে আপনাকে স্বাগতম</h1>
-        <p class="fs-5 max-width-600 mx-auto opacity-90">আমরা আমাদের হাই-পেইড মাইক্রো-টাস্ক প্ল্যাটফর্মটি অতি দ্রুত চালু করতে যাচ্ছি। বড় সুযোগ মিস না করতে এখনই আমাদের অফিশিয়াল হোয়াটসঅ্যাপ চ্যানেলে যুক্ত হয়ে থাকুন!</p>
-        <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
-            <a href="https://whatsapp.com/channel/0029Vb7NKxuIN9ip9ZKupE0q" class="btn btn-success btn-premium text-white px-5"><i class="fab fa-whatsapp"></i> এখনই হোয়াটসঅ্যাপ চ্যানেলে জয়েন করুন</a>
-        </div>
+<div id="authSection" class="auth-bg">
+    <div class="auth-box">
+        <h3 class="text-center mb-4 fw-bold text-primary">EarnStationBD</h3>
+        <ul class="nav nav-pills nav-justified mb-4">
+            <li class="nav-item"><a class="nav-link active" id="loginTab" onclick="switchTab('login')">লগইন</a></li>
+            <li class="nav-item"><a class="nav-link" id="regTab" onclick="switchTab('reg')">রেজিস্ট্রেশন</a></li>
+        </ul>
+        <form id="loginForm">
+            <input type="text" class="form-control mb-3" id="loginPhone" placeholder="মোবাইল নম্বর" required>
+            <button type="submit" class="btn btn-primary w-100">লগইন করুন</button>
+        </form>
+        <form id="regForm" class="hidden">
+            <input type="text" class="form-control mb-3" name="Name" placeholder="আপনার নাম" required>
+            <input type="text" class="form-control mb-3" name="Phone" placeholder="মোবাইল নম্বর" required>
+            <input type="text" class="form-control mb-3" name="Referrer" id="refCode" placeholder="রেফারার আইডি">
+            <button type="submit" class="btn btn-success w-100">একাউন্ট তৈরি করুন</button>
+        </form>
     </div>
 </div>
 
-<!-- Section: Recruitment & Launch Notice -->
-<div class="container my-5 py-2" id="recruitment">
-    <div class="notice-board">
-        <h3 class="fw-bold text-danger mb-3"><i class="fas fa-bullhorn"></i> একটি বিশেষ ঘোষণা এবং সুবর্ণ সুযোগ!</h3>
-        <p class="fs-5 text-dark">আমাদের মূল কাজগুলো ওয়েবসাইটে <strong>অতি দ্রুত ও নির্দিষ্ট সময়ে</strong> শুরু করা হবে। যারা সাইটটি চালু হওয়ার আগেই আমাদের সাথে যুক্ত থাকবেন, তাদের জন্য রয়েছে একটি বড় সারপ্রাইজ!</p>
-        <div class="row mt-4 g-3">
-            <div class="col-md-6">
-                <div class="p-3 bg-white rounded shadow-sm border-start border-success border-3">
-                    <h5><i class="fas fa-user-shield text-success me-2"></i> ম্যানেজার পদে নিয়োগ</h5>
-                    <p class="text-muted small mb-0">যারা শুরু থেকে আমাদের হোয়াটসঅ্যাপ চ্যানেলে একটিভ থাকবেন এবং মেম্বার বাড়াতে সাহায্য করবেন, তাদের মধ্য থেকে কয়েকজনকে আমরা এই প্ল্যাটফর্মের <strong>অফিশিয়াল ম্যানেজার</strong> হিসেবে সরাসরি নিয়োগ দেব।</p>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="p-3 bg-white rounded shadow-sm border-start border-primary border-3">
-                    <h5><i class="fas fa-user-tie text-primary me-2"></i> বিশেষ পদ ও বোনাস</h5>
-                    <p class="text-muted small mb-0">ম্যানেজার ছাড়াও অন্যান্য গুরুত্বপূর্ণ পদের জন্য কর্মী নেওয়া হবে, যাদের কাজ থাকবে ইউজারদের পেমেন্ট ও প্রুফ মনিটর করা। নিযুক্ত ব্যক্তিরা প্রতি মাসে একটি নির্দিষ্ট ফিক্সড স্যালারি পাবেন!</p>
-                </div>
-            </div>
-        </div>
-        <p class="mt-4 mb-0 fw-bold text-center text-primary fs-5">তাই দেরি না করে এখনই নিচের বাটনে ক্লিক করে অফিশিয়াল চ্যানেলে যুক্ত হয়ে নিজের সিট নিশ্চিত করুন!</p>
-        <div class="text-center mt-3">
-            <a href="https://whatsapp.com/channel/0029Vb7NKxuIN9ip9ZKupE0q" class="btn btn-danger btn-lg px-4 fw-bold">চ্যানেলে জয়েন করে আপডেট থাকুন <i class="fas fa-arrow-right ms-2"></i></a>
-        </div>
-    </div>
-</div>
-
-<!-- Section: Active Tasks With Full Details -->
-<div class="container my-5 py-4" id="tasks">
-    <h2 class="section-title">আমাদের কাজসমূহ এবং বিস্তারিত গাইডলাইন</h2>
-    <p class="text-center text-muted mb-5">আমাদের ওয়েবসাইটে মূলত কী কী কাজ থাকবে এবং কাজগুলো আপনাকে কীভাবে করতে হবে তা নিচে বিস্তারিত দেওয়া হলো:</p>
+<div id="mainContent" class="hidden">
     
-    <div class="row g-4">
-        <!-- Task 1: Facebook -->
-        <div class="col-lg-4">
-            <div class="info-card border-top border-primary border-4">
-                <div class="text-center mb-3">
-                    <i class="fab fa-facebook fa-3x text-primary mb-2"></i>
-                    <h5 class="fw-bold">ফেসবুক লাইক ও ফলো টাস্ক</h5>
-                    <div class="price-badge mb-3">রিওয়ার্ড: ১৫.০০ টাকা</div>
-                </div>
-                <h6><strong>কাজের বিস্তারিত বিবরণ:</strong></h6>
-                <p class="text-muted small">এই কাজের মূল উদ্দেশ্য হলো আমাদের ক্লায়েন্টদের ফেসবুক পেজে অর্গানিক রিচ বাড়ানো। আপনাকে এখানে দেওয়া নির্দিষ্ট ফেসবুক পেজ লিংকে গিয়ে লাইক এবং ফলো করতে হবে।</p>
-                <h6><strong>কীভাবে কাজটি সম্পন্ন করবেন (ধাপ):</strong></h6>
-                <div class="step-list text-muted mb-3">
-                    ১. কাজ শুরু হলে বাটনে ক্লিক করে ফেসবুক পেজে যান।<br>
-                    ২. পেজটিতে একটি 'Like' এবং 'Follow' দিন।<br>
-                    ৩. লাইভ লাইক দিয়েছেন তার একটি পরিষ্কার স্ক্রিনশট নিন।<br>
-                    ৪. স্ক্রিনশটটি প্রুফ হিসেবে আমাদের সাবমিট ফর্মে আপলোড করুন।
-                </div>
-                <button class="btn btn-secondary w-100 rounded-pill" disabled><i class="fas fa-clock me-2"></i>অতি দ্রুত শুরু হবে</button>
-            </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3 text-primary" href="#">EarnStationBD</a>
+            <button class="btn btn-outline-danger btn-sm" onclick="logout()">লগ-আউট</button>
         </div>
+    </nav>
 
-        <!-- Task 2: Instagram -->
-        <div class="col-lg-4">
-            <div class="info-card border-top border-danger border-4">
-                <div class="text-center mb-3">
-                    <i class="fab fa-instagram fa-3x text-danger mb-2"></i>
-                    <h5 class="fw-bold">ইনস্টাগ্রাম অ্যাকাউন্ট ফলো টাস্ক</h5>
-                    <div class="price-badge mb-3">রিওয়ার্ড: ২০.০০ টাকা</div>
-                </div>
-                <h6><strong>কাজের বিস্তারিত বিবরণ:</strong></h6>
-                <p class="text-muted small">ইনস্টাগ্রাম ইনফ্লুয়েন্সার এবং বিভিন্ন ব্র্যান্ডের প্রোফাইল ফলো করার মাধ্যমে এই ইনকাম করতে পারবেন। খুবই সহজ এবং মাত্র ১০ সেকেন্ডের কাজ এটি।</p>
-                <h6><strong>কীভাবে কাজটি সম্পন্ন করবেন (ধাপ):</strong></h6>
-                <div class="step-list text-muted mb-3">
-                    ১. লিংকে ক্লিক করে সরাসরি ইনস্টাগ্রাম প্রোফাইলে চলে যান।<br>
-                    ২. প্রোফাইলটি 'Follow' বাটনে ক্লিক করে ফলো করুন।<br>
-                    ৩. ফলো করা অবস্থায় স্ক্রিনের একটি স্ক্রিনশট তুলে নিন।<br>
-                    ৪. আপনার স্ক্রিনশটটি গুগল ফর্মে আপলোড করে জমা দিন।
-                </div>
-                <button class="btn btn-secondary w-100 rounded-pill" disabled><i class="fas fa-clock me-2"></i>অতি দ্রুত শুরু হবে</button>
-            </div>
-        </div>
-
-        <!-- Task 3: WhatsApp -->
-        <div class="col-lg-4">
-            <div class="info-card border-top border-success border-4">
-                <div class="text-center mb-3">
-                    <i class="fab fa-whatsapp fa-3x text-success mb-2"></i>
-                    <h5 class="fw-bold">হোয়াটসঅ্যাপ চ্যানেল জয়েন বোনাস</h5>
-                    <div class="price-badge mb-3">রিওয়ার্ড: ২৫.০০ টাকা (বোনাস)</div>
-                </div>
-                <h6><strong>কাজের বিস্তারিত বিবরণ:</strong></h6>
-                <p class="text-muted small">এটি আমাদের নিজস্ব এবং সবচেয়ে গুরুত্বপূর্ণ টাস্ক। আমাদের মেম্বারদের তাৎক্ষণিক আপডেট ও নতুন কাজের নোটিফিকেশন দিতে আমরা হোয়াটসঅ্যাপ চ্যানেল ব্যবহার করি।</p>
-                <h6><strong>কীভাবে কাজটি সম্পন্ন করবেন (ধাপ):</strong></h6>
-                <div class="step-list text-muted mb-3">
-                    ১. নিচে দেওয়া 'এখনই জয়েন করুন' বাটনে ক্লিক করুন।<br>
-                    ২. আমাদের হোয়াটসঅ্যাপ চ্যানেলে 'Join' বা 'Follow' করুন।<br>
-                    ৩. চ্যানেলে যুক্ত হয়েছেন তা নিশ্চিত করে স্ক্রিনশট নিন।<br>
-                    ৪. এই কাজটির বোনাস পেতে স্ক্রিনশটটি এডমিনকে দেখান।
-                </div>
-                <a href="https://whatsapp.com/channel/0029Vb7NKxuIN9ip9ZKupE0q" class="btn btn-success w-100 rounded-pill">এখনই জয়েন করুন <i class="fab fa-whatsapp ms-1"></i></a>
-            </div>
+    <div class="hero-area">
+        <div class="container">
+            <span class="badge bg-danger text-white px-4 py-2 rounded-pill fw-bold mb-3 fs-6">📢 অফিশিয়াল নোটিশ: সাইট খুব শীঘ্রই লাইভ হচ্ছে!</span>
+            <h1 class="display-4 fw-bold mb-3">EarnStationBD তে আপনাকে স্বাগতম</h1>
+            <p class="fs-5">আপনার অ্যাকাউন্ট দিয়ে লগইন করেছেন, এখন কাজ শুরু করুন!</p>
         </div>
     </div>
-</div>
 
-<!-- Footer -->
-<footer class="footer-dark">
-    <div class="container text-center">
-        <h3 class="fw-bold text-white mb-3">EarnStationBD</h3>
-        <p class="text-muted px-4">আমরা বিশ্বস্ততার সাথে মেম্বারদের হাই-রেট পারিশ্রমিক ও দ্রুত পেমেন্ট সুবিধা প্রদান করতে আসছি। আমাদের সাথে যুক্ত থাকুন এবং আপনার ইনকাম নিশ্চিত করুন।</p>
-        <hr class="border-secondary my-4">
-        <p class="mb-0 small">© 2026 EarnStationBD | সর্বস্বত্ব সংরক্ষিত।</p>
+    <div class="container my-5 py-2" id="recruitment">
+        <div class="notice-board">
+            <h3 class="fw-bold text-danger mb-3"><i class="fas fa-bullhorn"></i> একটি বিশেষ ঘোষণা!</h3>
+            <p class="fs-5 text-dark">আমাদের মূল কাজগুলো ওয়েবসাইটে অতি দ্রুত ও নির্দিষ্ট সময়ে শুরু করা হবে।</p>
+            <a href="https://whatsapp.com/channel/0029Vb7NKxuIN9ip9ZKupE0q" class="btn btn-danger btn-lg">চ্যানেলে জয়েন করুন <i class="fas fa-arrow-right"></i></a>
+        </div>
     </div>
-</footer>
 
-<!-- Floating WhatsApp Support Button -->
-<a href="https://whatsapp.com/channel/0029Vb7NKxuIN9ip9ZKupE0q" class="sticky-whatsapp">
-    <i class="fab fa-whatsapp fa-lg"></i> চ্যানেলে যুক্ত হোন
-</a>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-
-আপনারা সবাই দ্রুত whatsapp চ্যানেলে জয়েন করে থাকুন শীঘ্রই আমরা এটা চালু করতে যাচ্ছি</p>
+    <div class="container my-5 py-4" id="tasks">
+        <h2 class="section-title">আমাদের কাজসমূহ এবং বিস্তারিত গাইডলাইন</h2>
+        <div class="row g-4">
+            <div class="col-lg-4"><div class="info-card border-top border-primary border-4 text-center"><i class="fab fa-facebook fa-3x text-primary mb-2"></i><h5>ফেসবুক লাইক ও ফলো</h5><div class="price-badge">১৫.০০ টাকা</div><p>পেজে লাইক ও ফলো করুন।</p></div></div>
+            <div class="col-lg-4"><div class="info-card border-top border-danger border-4 text-center"><i class="fab fa-instagram fa-3x text-danger mb-2"></i><h5>ইনস্টাগ্রাম ফলো</h5><div class="price-badge">২০.০০ টাকা</div><p>প্রোফাইল ফলো করুন।</p></div></div>
+            <div class="col-lg-4"><div class="info-card border-top border-success border-4 text-center"><i class="fab fa-whatsapp fa-3x text-success mb-2"></i><h5>হোয়াটসঅ্যাপ বোনাস</h5><div class="price-badge">২৫.০০ টাকা</div><p>চ্যানেলে জয়েন করুন।</p></div></div>
+        </div>
     </div>
 
     <footer class="footer-dark text-center">
-        <p>© 2026 EarnStationBD</p>
+        <div class="container"><p>© 2026 EarnStationBD | সর্বস্বত্ব সংরক্ষিত।</p></div>
     </footer>
+    <a href="https://whatsapp.com/channel/0029Vb7NKxuIN9ip9ZKupE0q" class="sticky-whatsapp"><i class="fab fa-whatsapp"></i> সাপোর্ট</a>
 </div>
 
 <script>
-// ১. ব্রাউজার চেক করছে ইউজার আগে লগইন করেছে কি না
+function switchTab(type) {
+    document.getElementById('loginForm').classList.toggle('hidden', type !== 'login');
+    document.getElementById('regForm').classList.toggle('hidden', type !== 'reg');
+    document.getElementById('loginTab').classList.toggle('active', type === 'login');
+    document.getElementById('regTab').classList.toggle('active', type === 'reg');
+}
+
+document.getElementById('loginForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    localStorage.setItem('userPhone', document.getElementById('loginPhone').value);
+    location.reload();
+});
+
+function logout() {
+    localStorage.removeItem('userPhone');
+    location.reload();
+}
+
 window.onload = function() {
-    if (localStorage.getItem('isRegistered') === 'true') {
+    if (localStorage.getItem('userPhone')) {
         document.getElementById('authSection').classList.add('hidden');
         document.getElementById('mainContent').classList.remove('hidden');
     }
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('ref')) document.getElementById('refCode').value = urlParams.get('ref');
 };
 
-// ২. ফর্ম সাবমিট হলে লগইন হিসেবে সেভ করা
-document.getElementById('referralForm').addEventListener('submit', function(e) {
+document.getElementById('regForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxQ7RQ46bwv9ZLAy6wMmU75d9TScsZlGXT6Mn4Ds_PpHLJmPZeeQBlb7p3ZICABO0tvmQ/exec';
-    
-    fetch(scriptURL, { method: 'POST', mode: 'no-cors', body: new FormData(this)})
-    .then(() => {
-        localStorage.setItem('isRegistered', 'true'); // এটি ব্রাউজারে সেভ থাকছে
-        document.getElementById('authSection').classList.add('hidden');
-        document.getElementById('mainContent').classList.remove('hidden');
-    })
-    .catch(error => console.error('Error!', error));
+    fetch('https://script.google.com/macros/s/AKfycbxQ7RQ46bwv9ZLAy6wMmU75d9TScsZlGXT6Mn4Ds_PpHLJmPZeeQBlb7p3ZICABO0tvmQ/exec', { method: 'POST', mode: 'no-cors', body: new FormData(this)})
+    .then(() => { alert('একাউন্ট তৈরি হয়েছে! এখন লগইন করুন।'); switchTab('login'); });
 });
 </script>
-
 </body>
 </html>
