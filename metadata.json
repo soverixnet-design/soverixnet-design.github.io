@@ -1,0 +1,6 @@
+{
+  "name": "Soverixnet VPN",
+  "description": "Soverixnet - The Ultimate Quantum-Safe Encrypted VPN, Low-Ping Gaming Accelerator, Ad Blocker & Complete Online Privacy Shield.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

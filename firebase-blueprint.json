@@ -1,0 +1,359 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile information, VIP subscription plan metadata, and RBAC role hierarchy",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the user",
+          "maxLength": 128
+        },
+        "email": {
+          "type": "string",
+          "description": "User email address",
+          "maxLength": 256
+        },
+        "displayName": {
+          "type": "string",
+          "description": "User display name",
+          "maxLength": 128
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "User mobile phone contact",
+          "maxLength": 64
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "URL of user avatar",
+          "maxLength": 1024
+        },
+        "role": {
+          "type": "string",
+          "description": "RBAC Role: super_admin (owner soverixnet@gmail.com), admin (authorized staff), reseller (sub-agent panel), user (regular customer)",
+          "enum": ["super_admin", "admin", "reseller", "user"],
+          "maxLength": 32
+        },
+        "resellerCredits": {
+          "type": "number",
+          "description": "Available credit balance in BDT for reseller accounts to generate customer passes"
+        },
+        "resellerVouchersGenerated": {
+          "type": "number",
+          "description": "Number of customer VIP accounts provisioned by this reseller"
+        },
+        "managedByResellerId": {
+          "type": "string",
+          "description": "UID or email of the reseller who provisioned this user account",
+          "maxLength": 128
+        },
+        "plan": {
+          "type": "string",
+          "description": "Subscription tier",
+          "enum": [
+            "Sovereign VIP Lifetime", 
+            "Cyber Pro 1-Year", 
+            "Gaming Turbo Monthly", 
+            "Quantum Elite Pass",
+            "Free Tier"
+          ],
+          "maxLength": 64
+        },
+        "planPriceBDT": {
+          "type": "number",
+          "description": "Plan pricing in Bangladeshi Taka"
+        },
+        "referralCode": {
+          "type": "string",
+          "description": "Unique referral code for this user",
+          "maxLength": 64
+        },
+        "referredBy": {
+          "type": "string",
+          "description": "Referral code or UID of the user who referred this account",
+          "maxLength": 128
+        },
+        "referralCount": {
+          "type": "number",
+          "description": "Total number of successful signups invited by this user"
+        },
+        "referralEarningsBDT": {
+          "type": "number",
+          "description": "Total referral commission/earnings in BDT"
+        },
+        "referralBonusDays": {
+          "type": "number",
+          "description": "Total accumulated bonus VIP subscription days from referrals"
+        },
+        "referralRewardTier": {
+          "type": "string",
+          "description": "Current gamified reward tier (Bronze Pilot, Silver Voyager, Gold Commander, Quantum Titan)",
+          "maxLength": 64
+        },
+        "vipMasterKey": {
+          "type": "string",
+          "description": "Cryptographic client master key",
+          "maxLength": 128
+        },
+        "status": {
+          "type": "string",
+          "description": "Account status",
+          "enum": ["active", "suspended", "expired"],
+          "maxLength": 32
+        },
+        "lastLoginAt": {
+          "type": "string",
+          "description": "ISO timestamp of last login",
+          "maxLength": 64
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp of account creation",
+          "maxLength": 64
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO timestamp of last update",
+          "maxLength": 64
+        }
+      },
+      "required": ["userId", "email", "plan"]
+    },
+    "UserPreferences": {
+      "title": "UserPreferences",
+      "description": "Persistent user VPN security settings and preferred configurations",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "UID of the owning user",
+          "maxLength": 128
+        },
+        "preferredProtocol": {
+          "type": "string",
+          "description": "Default VPN protocol chosen by user",
+          "maxLength": 32
+        },
+        "killSwitch": {
+          "type": "boolean",
+          "description": "Whether kill switch is enabled"
+        },
+        "cleanNetAdBlock": {
+          "type": "boolean",
+          "description": "Whether ad and tracker blocking is enabled"
+        },
+        "malwareShield": {
+          "type": "boolean",
+          "description": "Whether phishing shield is enabled"
+        },
+        "stealthObfuscation": {
+          "type": "boolean",
+          "description": "Whether stealth obfuscation is enabled"
+        },
+        "quantumSafeKyber": {
+          "type": "boolean",
+          "description": "Whether NIST Kyber-1024 quantum protection is active"
+        },
+        "dnsProvider": {
+          "type": "string",
+          "description": "Selected DNS resolver option",
+          "maxLength": 64
+        },
+        "favoriteServerIds": {
+          "type": "array",
+          "description": "List of favorite server node IDs",
+          "items": {
+            "type": "string",
+            "maxLength": 64
+          }
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO timestamp of last settings update",
+          "maxLength": 64
+        }
+      },
+      "required": ["userId", "preferredProtocol", "killSwitch", "cleanNetAdBlock"]
+    },
+    "ConnectedDevice": {
+      "title": "ConnectedDevice",
+      "description": "Active registered device session authorized on user account",
+      "type": "object",
+      "properties": {
+        "deviceId": {
+          "type": "string",
+          "description": "Unique identifier for the device",
+          "maxLength": 128
+        },
+        "userId": {
+          "type": "string",
+          "description": "Owner UID",
+          "maxLength": 128
+        },
+        "deviceName": {
+          "type": "string",
+          "description": "Name or model of the device",
+          "maxLength": 128
+        },
+        "deviceType": {
+          "type": "string",
+          "description": "Type of client (pc, mobile, tv, router)",
+          "enum": ["pc", "mobile", "tv", "router"],
+          "maxLength": 32
+        },
+        "virtualIp": {
+          "type": "string",
+          "description": "Assigned virtual tunnel IP",
+          "maxLength": 64
+        },
+        "location": {
+          "type": "string",
+          "description": "Last active connected node location",
+          "maxLength": 128
+        },
+        "activeSince": {
+          "type": "string",
+          "description": "Timestamp or relative active time",
+          "maxLength": 64
+        },
+        "lastSeen": {
+          "type": "string",
+          "description": "ISO timestamp of last heartbeat",
+          "maxLength": 64
+        }
+      },
+      "required": ["deviceId", "userId", "deviceName", "deviceType"]
+    },
+    "ConnectionLog": {
+      "title": "ConnectionLog",
+      "description": "User VPN session connection diagnostic history",
+      "type": "object",
+      "properties": {
+        "logId": {
+          "type": "string",
+          "description": "Unique connection log identifier",
+          "maxLength": 128
+        },
+        "userId": {
+          "type": "string",
+          "description": "Owner UID",
+          "maxLength": 128
+        },
+        "serverNodeId": {
+          "type": "string",
+          "description": "ID of the VPN node used",
+          "maxLength": 64
+        },
+        "serverName": {
+          "type": "string",
+          "description": "Name of the VPN node",
+          "maxLength": 128
+        },
+        "protocol": {
+          "type": "string",
+          "description": "Protocol used (wireguard, v2ray, etc.)",
+          "maxLength": 32
+        },
+        "connectedAt": {
+          "type": "string",
+          "description": "ISO timestamp of connection start",
+          "maxLength": 64
+        },
+        "durationSeconds": {
+          "type": "number",
+          "description": "Length of connection in seconds"
+        },
+        "bytesDownloadedMB": {
+          "type": "number",
+          "description": "Megabytes received"
+        },
+        "bytesUploadedMB": {
+          "type": "number",
+          "description": "Megabytes transmitted"
+        }
+      },
+      "required": ["logId", "userId", "serverNodeId", "protocol"]
+    },
+    "ReferralRecord": {
+      "title": "ReferralRecord",
+      "description": "Log of successful signups and reward tracking under a referrer",
+      "type": "object",
+      "properties": {
+        "refId": {
+          "type": "string",
+          "description": "Unique identifier for this referral instance",
+          "maxLength": 128
+        },
+        "referrerUserId": {
+          "type": "string",
+          "description": "UID of the referring user",
+          "maxLength": 128
+        },
+        "referredUserId": {
+          "type": "string",
+          "description": "UID of the newly registered user",
+          "maxLength": 128
+        },
+        "referredUserEmail": {
+          "type": "string",
+          "description": "Email or masked identifier of referred user",
+          "maxLength": 256
+        },
+        "referredUserName": {
+          "type": "string",
+          "description": "Display name of referred user",
+          "maxLength": 128
+        },
+        "plan": {
+          "type": "string",
+          "description": "Plan activated by referred user",
+          "maxLength": 64
+        },
+        "rewardStatus": {
+          "type": "string",
+          "description": "Status of the reward",
+          "enum": ["credited", "pending", "claimed"],
+          "maxLength": 32
+        },
+        "rewardAmountBDT": {
+          "type": "number",
+          "description": "BDT reward value credited"
+        },
+        "rewardBonusDays": {
+          "type": "number",
+          "description": "Bonus VIP days credited"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp of signup referral event",
+          "maxLength": 64
+        }
+      },
+      "required": ["refId", "referrerUserId", "referredUserId", "rewardStatus"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Primary user profile document containing subscription, role hierarchy (super_admin, admin, reseller, user), and user metadata"
+    },
+    "/users/{userId}/preferences/{prefId}": {
+      "schema": "UserPreferences",
+      "description": "Persistent security toggles, favorite servers, and protocol preferences"
+    },
+    "/users/{userId}/devices/{deviceId}": {
+      "schema": "ConnectedDevice",
+      "description": "Sub-collection of user authorized multi-device active sessions"
+    },
+    "/users/{userId}/history/{logId}": {
+      "schema": "ConnectionLog",
+      "description": "Sub-collection of user past VPN connection diagnostics and data usage"
+    },
+    "/users/{userId}/referrals/{refId}": {
+      "schema": "ReferralRecord",
+      "description": "Sub-collection of successful referrals and bonuses earned by this user"
+    }
+  }
+}
